@@ -1,0 +1,16 @@
+born_in_india(Ramesh).
+born_in_india(Suresh).
+
+stays_in_india(Ramesh).
+stays_in_india(Suresh).
+stays_in_india(Jack).
+stays_in_india(Billy).
+
+indian(X):-
+    not(born_in_india(X)),
+    !, fail.
+
+indian(X):-
+    stays_in_india(X).
+
+

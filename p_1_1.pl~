@@ -1,0 +1,39 @@
+user('abc123',123).
+user('san123','san').
+user('mrd',07).
+
+login :-
+    write('Id: '),nl,
+    read(Id),
+    write('Password: '),nl,
+    read(Pass),
+    verify(Id,Pass).
+
+verify(Id,Pass):-
+    not(user(Id,Pass)),
+    write('User Not Exist!!!').
+
+verify(Id,Pass):-
+    user(Id,Pass),
+    write('User Verified!!!').
+
+login_1 :-
+    write('Id: '),nl,
+    read(Id),
+    write('Password: '),nl,
+    read(Pass),
+    verify_1(Id,Pass).
+
+verify_1(Id,Pass):-
+    not(user(Id,Pass)),
+    write('User Not Exist!!!'),
+    login_1.
+
+verify_1(Id,Pass):-
+    user(Id,Pass),
+    write('User Verified!!!').
+
+
+
+
+

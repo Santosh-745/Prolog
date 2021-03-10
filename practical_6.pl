@@ -1,0 +1,33 @@
+copy([],[]).
+copy([H|T],[H|T1]):-
+     copy(T,T1).
+
+append([],L,L).
+append([X|L1],L2,[X|L3]):-
+     append(L1,L2,L3).
+
+mem(X,[X|_]).
+mem(X,[_|Y]):-
+     mem(X,Y).
+
+union([],L,L).
+
+union([H1|T1],L2,L3):-
+     mem(H1,L2),
+     union(T1,L2,L3).
+
+union([H1|T1],L2,[H1|T3]):-
+     \+mem(H1,L2),
+     union(T1,L2,T3).
+
+
+intersection([],_,[]).
+
+intersection([H1|T1],L2,L3):-
+     \+mem(H1,L2),
+     intersection(T1,L2,L3).
+
+intersection([H1|T1],L2,[H1|T3]):-
+     mem(H1,L2),
+     intersection(T1,L2,T3).
+

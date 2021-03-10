@@ -1,0 +1,36 @@
+ispal(A):-
+	B is 0,
+	T is A,
+	loop(A,T,B).
+
+
+loop(A,T,B):-
+	R is T mod 10,
+	B1 is B * 10,
+	B2 is B1 + R,
+	T1 is T // 10,
+	check(A,T1,B2),
+	loop(A,T1,B2).
+
+check(A,T,B):-
+	T > 0,
+	loop(A,T,B).
+
+check(A,T,B):-
+	T < 0,
+	compare(A,B).
+
+compare(A,B):-
+	B =:= A,
+	write('yes it is').
+
+compare(A,B):-
+	B =\= A,
+	write('no it is not').
+
+%ispal(A):-
+	%B is 0,
+	%loop(A,B),
+	%B =\= A,
+	%write('no, it not').
+

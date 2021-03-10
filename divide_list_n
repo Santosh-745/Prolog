@@ -1,0 +1,8 @@
+fun([H|T],0,L1,L2):-
+	  conc(L2,H,L3),
+	  fun(T,0,L1,L3).
+
+fun([H|T],N,L1,L2):-
+          N1 is N-1,
+	  conc(L1,H,L3),
+	  fun(T,N1,L3,L2).
