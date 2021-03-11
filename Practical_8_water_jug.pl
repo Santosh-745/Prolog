@@ -8,7 +8,7 @@ ismem(X,[_|Y]):-
 
 
 fun([X,Y],_,_,_):-
-    ( X=5 ; Y=5  ),
+    ( X=4 ; Y=4  ),
     write("goal state reached").
 
 
@@ -16,6 +16,9 @@ fun([X,Y],M,N,L):-
     Y < N,
     \+ismem([X,N],L),
     apend(L,[[X,N]],L1),
+    write("\n"),
+    write([X,Y]),
+    write("\t to \t"),
     write([X,N]),
     fun([X,N],M,N,L1).
 
@@ -23,6 +26,9 @@ fun([X,Y],M,N,L):-
     X < M,
     \+ismem([M,Y],L),
     apend(L,[[M,Y]],L1),
+    write("\n"),
+    write([X,Y]),
+    write("\t to \t"),
     write([M,Y]),
     fun([M,Y],M,N,L1).
 
@@ -30,6 +36,9 @@ fun([X,Y],M,N,L):-
     X > 0,
     \+ismem([0,Y],L),
     apend(L,[[0,Y]],L1),
+    write("\n"),
+    write([X,Y]),
+    write("\t to \t"),
     write([0,Y]),
     fun([0,Y],M,N,L1).
 
@@ -37,6 +46,9 @@ fun([X,Y],M,N,L):-
     Y > 0,
     \+ismem([X,0],L),
     apend(L,[[X,0]],L1),
+    write("\n"),
+    write([X,Y]),
+    write("\t to \t"),
     write([X,0]),
     fun([X,0],M,N,L1).
 
@@ -50,6 +62,9 @@ fun([X,Y],M,N,L):-
     Y2 is Y - Y3,
     \+ismem([M,Y2],L),
     apend(L,[[M,Y2]],L1),
+    write("\n"),
+    write([X,Y]),
+    write("\t to \t"),
     write([M,Y2]),
     fun([M,Y2],M,N,L1).
 
@@ -62,6 +77,9 @@ fun([X,Y],M,N,L):-
     Y2 is X - Y3,
     \+ismem([Y2,N],L),
     apend(L,[[Y2,N]],L1),
+    write("\n"),
+    write([X,Y]),
+    write("\t to \t"),
     write([Y2,N]),
     fun([Y2,N],M,N,L1).
 
@@ -73,6 +91,9 @@ fun([X,Y],M,N,L):-
     Y > 0,
     \+ismem([Y1,0],L),
     apend(L,[[Y1,0]],L1),
+    write("\n"),
+    write([X,Y]),
+    write("\t to \t"),
     write([Y1,0]),
     fun([Y1,0],M,N,L1).
 
@@ -84,11 +105,11 @@ fun([X,Y],M,N,L):-
     X >= 0,
     \+ismem([0,Y1],L),
     apend(L,[[0,Y1]],L1),
+    write("\n"),
+    write([X,Y]),
+    write("\t to \t"),
     write([0,Y1]),
     fun([0,Y1],M,N,L1).
-
-
-
 
 
 
